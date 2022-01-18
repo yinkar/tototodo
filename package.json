@@ -1,0 +1,32 @@
+{
+  "name": "tototodo",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "start": "parcel ./ui/src/index.html"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/yinkar/tototodo.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/yinkar/tototodo/issues"
+  },
+  "homepage": "https://github.com/yinkar/tototodo#readme",
+  "devDependencies": {
+    "@parcel/transformer-vue": "^2.2.1",
+    "parcel": "^2.2.1",
+    "parcel-plugin-static-files-copy": "^2.6.0"
+  },
+  "dependencies": {
+    "uuid": "^8.3.2",
+    "vue": "^3.2.27"
+  },
+  "staticFiles": {
+    "staticPath": "public"
+  }
+}
