@@ -23,7 +23,22 @@
         methods: {
             newTodo(todo) {
                 this.todos = [...this.todos, todo];
+            },
+            fetchTodos() {
+                fetch(`http://${window.location.hostname}:8000/todos`, {
+                    method: 'GET'
+                })
+                .then(r => r.json())
+                .then(d => this.todos = d.map(e => {
+                    return {
+                        id: e.Id,
+                        content: e.Content
+                    }
+                }));
             }
+        },
+        created() {
+            this.fetchTodos();
         }
     };
 </script>

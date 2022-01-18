@@ -4,7 +4,9 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "start": "parcel ./ui/src/index.html"
+    "dev": "vite",
+    "build": "vite build",
+    "serve": "vite preview"
   },
   "repository": {
     "type": "git",
@@ -18,15 +20,10 @@
   },
   "homepage": "https://github.com/yinkar/tototodo#readme",
   "devDependencies": {
-    "@parcel/transformer-vue": "^2.2.1",
-    "parcel": "^2.2.1",
-    "parcel-plugin-static-files-copy": "^2.6.0"
+    "@vitejs/plugin-vue": "^2.0.1",
+    "vite": "^2.7.12"
   },
   "dependencies": {
-    "uuid": "^8.3.2",
     "vue": "^3.2.27"
-  },
-  "staticFiles": {
-    "staticPath": "public"
   }
 }
