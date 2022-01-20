@@ -7,12 +7,16 @@ import (
 
 	"github.com/gorilla/mux"
 	"github.com/rs/cors"
+	config "github.com/yinkar/tototodo/backend/_config"
 	"github.com/yinkar/tototodo/backend/src"
 )
 
-var port int = 8000
+var port int
 
 func main() {
+	config := config.GetConfig()
+	port = config.Srv.Port
+
 	router := mux.NewRouter()
 
 	router.HandleFunc("/version", src.Version).Methods("GET")
@@ -23,5 +27,8 @@ func main() {
 	}).Handler(router)
 
 	log.Printf("API is serving on %d\n", port)
-	http.ListenAndServe(fmt.Sprintf(":%d", port), handler)
+	err := http.ListenAndServe(fmt.Sprintf(":%d", port), handler)
+	if err != nil {
+		log.Fatal(err)
+	}
 }

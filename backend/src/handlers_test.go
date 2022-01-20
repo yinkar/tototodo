@@ -4,6 +4,8 @@ import (
 	"net/http"
 	"net/http/httptest"
 	"testing"
+
+	"github.com/stretchr/testify/assert"
 )
 
 func TestHealth(t *testing.T) {
@@ -21,18 +23,12 @@ func TestHealth(t *testing.T) {
 	handler.ServeHTTP(rr, req)
 
 	// Check status code
-	if status := rr.Code; status != http.StatusOK {
-		t.Errorf("The endpoint returned %v but we want %v as a status code.",
-			status,
-			http.StatusOK)
-	}
+	status := rr.Code
+	assert.Equal(t, status, http.StatusOK)
 
 	// Check body
-	expected := `{"alive": true}`
-	if rr.Body.String() != expected {
-		t.Errorf("The endpoint returned %v but we want %v as a body.",
-			rr.Body.String(), expected)
-	}
+	body := rr.Body.String()
+	assert.Equal(t, body, `{"alive": true}`)
 }
 
 func TestVersion(t *testing.T) {
@@ -50,16 +46,10 @@ func TestVersion(t *testing.T) {
 	handler.ServeHTTP(rr, req)
 
 	// Check status code
-	if status := rr.Code; status != http.StatusOK {
-		t.Errorf("The endpoint returned %v but we want %v as a status code.",
-			status,
-			http.StatusOK)
-	}
+	status := rr.Code
+	assert.Equal(t, status, http.StatusOK)
 
 	// Check body
-	expected := `{"version": "v0.1.0"}`
-	if rr.Body.String() != expected {
-		t.Errorf("The endpoint returned %v but we want %v as a body.",
-			rr.Body.String(), expected)
-	}
+	body := rr.Body.String()
+	assert.Equal(t, body, `{"version": "v0.1.0"}`)
 }
