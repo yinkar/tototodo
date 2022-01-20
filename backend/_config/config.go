@@ -29,7 +29,7 @@ func GetConfig() *Config {
 		DB: &DBConfig{
 			Driver:   "mysql",
 			Host:     "127.0.0.1",
-			Port:     3306,
+			Port:     33066,
 			Username: "root",
 			Password: "root",
 			Database: "tototodo",
