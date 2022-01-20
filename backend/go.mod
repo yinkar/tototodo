@@ -6,5 +6,6 @@ require (
 	github.com/cucumber/godog v0.12.4
 	github.com/gorilla/mux v1.8.0
 	github.com/rs/cors v1.8.2
+	github.com/spf13/pflag v1.0.5
 	github.com/stretchr/testify v1.7.0
 )

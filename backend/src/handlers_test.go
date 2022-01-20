@@ -28,7 +28,8 @@ func TestHealth(t *testing.T) {
 
 	// Check body
 	body := rr.Body.String()
-	assert.Equal(t, body, `{"alive": true}`)
+	expected := `{"alive": true}`
+	assert.Equal(t, body, expected)
 }
 
 func TestVersion(t *testing.T) {
@@ -46,10 +47,16 @@ func TestVersion(t *testing.T) {
 	handler.ServeHTTP(rr, req)
 
 	// Check status code
-	status := rr.Code
-	assert.Equal(t, status, http.StatusOK)
+	if status := rr.Code; status != http.StatusOK {
+		t.Errorf("The endpoint returned %v but we want %v as a status code.",
+			status,
+			http.StatusOK)
+	}
 
 	// Check body
-	body := rr.Body.String()
-	assert.Equal(t, body, `{"version": "v0.1.0"}`)
+	expected := `{"version": "v0.1.0"}`
+	if rr.Body.String() != expected {
+		t.Errorf("The endpoint returned %v but we want %v as a body.",
+			rr.Body.String(), expected)
+	}
 }

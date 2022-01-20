@@ -3,6 +3,7 @@ package config
 type Config struct {
 	DB  *DBConfig
 	Srv *ServerConfig
+	Api *ApiConfig
 }
 
 type DBConfig struct {
@@ -19,6 +20,10 @@ type ServerConfig struct {
 	Port int
 }
 
+type ApiConfig struct {
+	Version string
+}
+
 func GetConfig() *Config {
 	return &Config{
 		DB: &DBConfig{
@@ -32,6 +37,9 @@ func GetConfig() *Config {
 		},
 		Srv: &ServerConfig{
 			Port: 8000,
+		},
+		Api: &ApiConfig{
+			Version: "v0.1.0",
 		},
 	}
 }

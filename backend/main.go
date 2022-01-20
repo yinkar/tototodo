@@ -7,14 +7,14 @@ import (
 
 	"github.com/gorilla/mux"
 	"github.com/rs/cors"
-	config "github.com/yinkar/tototodo/backend/_config"
+	c "github.com/yinkar/tototodo/backend/_config"
 	"github.com/yinkar/tototodo/backend/src"
 )
 
 var port int
 
 func main() {
-	config := config.GetConfig()
+	config := c.GetConfig()
 	port = config.Srv.Port
 
 	router := mux.NewRouter()
