@@ -44,7 +44,7 @@ func TestVersion(t *testing.T) {
 
 	// Creating a response recorder
 	rr := httptest.NewRecorder()
-	handler := http.HandlerFunc(Health)
+	handler := http.HandlerFunc(Version)
 
 	// Serve HTTP to make requests
 	handler.ServeHTTP(rr, req)

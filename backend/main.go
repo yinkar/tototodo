@@ -15,8 +15,8 @@ var port int = 8000
 func main() {
 	router := mux.NewRouter()
 
-	router.HandleFunc("/health", src.Health).Methods("GET")
 	router.HandleFunc("/version", src.Version).Methods("GET")
+	router.HandleFunc("/health", src.Health).Methods("GET")
 
 	handler := cors.New(cors.Options{
 		AllowedMethods: []string{"GET", "POST"},
