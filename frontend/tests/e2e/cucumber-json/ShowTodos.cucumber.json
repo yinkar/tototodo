@@ -22,7 +22,7 @@
             "name": "client on the main page",
             "result": {
               "status": "passed",
-              "duration": 147000000
+              "duration": 320000000
             }
           },
           {
@@ -32,7 +32,7 @@
             "name": "todos should list",
             "result": {
               "status": "passed",
-              "duration": 15000000
+              "duration": 11000000
             }
           }
         ]

@@ -1,18 +1,32 @@
 <template>
-    <h1 data-test-header>Tototo Do</h1>
-    <div class="todos">
-        play guitar
+    <div>
+        <ul class="todos">
+            <Todo 
+                v-bind:todo="todo" 
+                v-bind:key="todo.id" 
+                v-for="todo in todos.slice().reverse()"
+            />
+        </ul>
     </div>
 </template>
 
 <script>
+    import Todo from './Todo.vue';
+
     export default {
-        setup() {
-            
+        name: 'Todos',
+        components: {
+            Todo
         },
-    }
+        props: [
+            "todos",
+        ]
+    };
 </script>
 
-<style lang="stylus" scoped>
+<style lang="stylus">
+    .todos
+        list-style none
+        margin 10px 0
 
 </style>

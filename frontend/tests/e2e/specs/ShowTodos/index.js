@@ -7,5 +7,5 @@ Given(`client on the main page`, () => {
 });
 
 Then(`todos should list`, () => {
-    cy.get('.todos')
+    cy.get('.todos');    
 });
