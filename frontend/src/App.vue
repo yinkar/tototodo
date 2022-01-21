@@ -1,9 +1,19 @@
 <template>
-  <div></div>
+  <div>
+    <Todos />
+  </div>
 </template>
 
 <script>
-export default {
-  name: "App",
-};
+  import Todos from './components/Todos.vue';
+
+  export default {
+    name: "App",
+    data() {
+    
+    },
+    components: {
+      Todos
+    }
+  };
 </script>

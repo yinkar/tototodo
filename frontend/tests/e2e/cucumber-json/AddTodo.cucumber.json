@@ -1,0 +1,72 @@
+[
+  {
+    "keyword": "Feature",
+    "name": "add todo",
+    "line": 1,
+    "id": "add-todo",
+    "tags": [],
+    "uri": "AddTodo.feature",
+    "elements": [
+      {
+        "id": "add-todo;typing-on-input",
+        "keyword": "Scenario",
+        "line": 2,
+        "name": "typing on input",
+        "tags": [],
+        "type": "scenario",
+        "steps": [
+          {
+            "arguments": [],
+            "keyword": "When ",
+            "line": 3,
+            "name": "i type \"play guitar\" to input",
+            "result": {
+              "status": "passed",
+              "duration": 140000000
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "Then ",
+            "line": 4,
+            "name": "input should contains \"play guitar\"",
+            "result": {
+              "status": "passed",
+              "duration": 3000000
+            }
+          }
+        ]
+      },
+      {
+        "id": "add-todo;clicking-button",
+        "keyword": "Scenario",
+        "line": 6,
+        "name": "clicking button",
+        "tags": [],
+        "type": "scenario",
+        "steps": [
+          {
+            "arguments": [],
+            "keyword": "When ",
+            "line": 7,
+            "name": "i press the button",
+            "result": {
+              "status": "passed",
+              "duration": 80000000
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "Then ",
+            "line": 8,
+            "name": "\"play guitar\" should be in the list",
+            "result": {
+              "status": "passed",
+              "duration": 20000000
+            }
+          }
+        ]
+      }
+    ]
+  }
+]

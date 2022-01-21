@@ -1,0 +1,42 @@
+[
+  {
+    "keyword": "Feature",
+    "name": "show todos",
+    "line": 1,
+    "id": "show-todos",
+    "tags": [],
+    "uri": "ShowTodos.feature",
+    "elements": [
+      {
+        "id": "show-todos;main-page-event",
+        "keyword": "Scenario",
+        "line": 2,
+        "name": "main page event",
+        "tags": [],
+        "type": "scenario",
+        "steps": [
+          {
+            "arguments": [],
+            "keyword": "When ",
+            "line": 3,
+            "name": "client on the main page",
+            "result": {
+              "status": "passed",
+              "duration": 147000000
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "Then ",
+            "line": 4,
+            "name": "todos should list",
+            "result": {
+              "status": "passed",
+              "duration": 15000000
+            }
+          }
+        ]
+      }
+    ]
+  }
+]
