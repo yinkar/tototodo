@@ -55,11 +55,12 @@ jobs:
       - store_test_results:
           path: /tmp/test-results
 
-    deploy:
-      executor: gcp-cli/default
-      steps:
+  deploy:
+    executor: gcp-cli/default
+    steps:
       - gcp-cli/install
       - gcp-cli/initialize
+      
       - run:
           name: deploy service
           command: |
