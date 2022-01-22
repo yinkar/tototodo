@@ -2,6 +2,8 @@ version: 2
 
 jobs:
   build:
+    docker:
+      - image: cimg/base:stable
 
     environment: /tmp/test-results
 
@@ -21,6 +23,8 @@ jobs:
       - run:
           name: Run Docker Daemon
           command: |
+            sudo pkill dockerd
+            sudo apt-get install linux-image-$(uname -r)
             sudo dockerd
 
       - run:
