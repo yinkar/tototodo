@@ -1,4 +1,7 @@
-version: 2
+version: 2.1
+
+orbs:
+  gcp-cli: circleci/gcp-cli@2.2.0
 
 jobs:
   build:
@@ -30,14 +33,14 @@ jobs:
       - run:
           name: Run backend tests
           command: |
-            (cd backend && godog)
+            (cd ./backend && godog)
 
       - setup_remote_docker
 
       - run:
           name: Run frontend tests
           command: |
-            (cd frontend && npm run test:e2e)
+            (cd ./frontend && npm run test:e2e)
 
       - setup_remote_docker
 
@@ -51,3 +54,14 @@ jobs:
 
       - store_test_results:
           path: /tmp/test-results
+
+    deploy:
+      executor: gcp-cli/default
+      steps:
+      - gcp-cli/install
+      - gcp-cli/initialize
+      - run:
+          name: deploy service
+          command: |
+            export cmd='sudo docker stop $(docker ps -a -q) || true && sudo docker rm $(docker ps -a -q) || true && docker image prune -a -f || true && docker run -d -p 80:5000'
+            gcloud --quiet compute ssh  "$GCE_INSTANCE_NAME" --tunnel-through-iap --command="$cmd $IMAGE_NAME"
