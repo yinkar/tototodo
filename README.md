@@ -23,6 +23,7 @@ Table of Contents
   - [Running tests](#running-tests)
     - [Backend tests](#backend-tests)
     - [Frontend tests](#frontend-tests)
+  - [Etymology](#etymology)
 
 ## Technologies
 
@@ -95,3 +96,6 @@ You should use ``godog`` to run tests
 
 ### Frontend tests
 You should use ``npm run test:e2e`` to run tests
+
+## Etymology
+"Tototo Do" name is derrived from the opening sequence of the [Beethoven's 5th Symphony](https://www.youtube.com/watch?v=_4IRMYuE1hI).
