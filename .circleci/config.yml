@@ -11,13 +11,14 @@ jobs:
       - checkout
 
       - run:
-          name: Install Docker Compose
-          environment:
-            COMPOSE_VERSION: '1.29.2'
+          name: Install Docker client
           command: |
-            curl -L "https://github.com/docker/compose/releases/download/${COMPOSE_VERSION}/docker-compose-$(uname -s)-$(uname -m)" -o ~/docker-compose
-            chmod +x ~/docker-compose
-            sudo mv ~/docker-compose /usr/local/bin/docker-compose
+            apt install docker
+
+      - run:
+          name: Install Docker Compose
+          command: |
+            apt install docker-compose
 
       - run:
           name: Build
