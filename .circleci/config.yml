@@ -31,7 +31,7 @@ jobs:
           name: Run Docker Deamon
           command: |
             apt-get install -y iptables arptables ebtables
-            service docker start
+            dockerd
 
       - run:
           name: Build
