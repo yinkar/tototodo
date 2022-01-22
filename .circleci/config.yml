@@ -13,12 +13,12 @@ jobs:
       - run:
           name: Install Docker client
           command: |
-            apt install docker
+            sudo apt-get update && sudo apt-get install docker
 
       - run:
           name: Install Docker Compose
           command: |
-            apt install docker-compose
+            sudo apt-get update && sudo apt-get install docker-compose
 
       - run:
           name: Build
