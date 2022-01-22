@@ -32,15 +32,15 @@ jobs:
 
       - run:
           name: Run backend tests
-          command: |
-            (cd ./backend && godog)
+          working_directory: ./backend
+          command: golang
 
       - setup_remote_docker
 
       - run:
           name: Run frontend tests
-          command: |
-            (cd ./frontend && npm run test:e2e)
+          working_directory: ./backend
+          command: npm run test:e2e
 
       - setup_remote_docker
 
