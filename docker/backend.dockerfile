@@ -9,12 +9,10 @@ WORKDIR /app
 
 ADD ./backend .
 
-COPY ./backend/go.mod ./backend/go.sum ./
-
 RUN go mod tidy
 
-RUN go build .
+RUN go build -o /tototodo
 
 EXPOSE 8000
 
-CMD [ "./backend" ]
+CMD [ "/tototodo" ]
