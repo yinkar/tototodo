@@ -33,14 +33,17 @@ jobs:
       - run:
           name: Run backend tests
           working_directory: ./backend
-          command: golang
+          command: pwd
+
+      - run: ls
+      - run: ls ..
 
       - setup_remote_docker
 
       - run:
           name: Run frontend tests
           working_directory: ./backend
-          command: npm run test:e2e
+          command: pwd
 
       - setup_remote_docker
 
