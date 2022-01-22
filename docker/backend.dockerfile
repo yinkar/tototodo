@@ -11,14 +11,10 @@ ADD ./backend .
 
 COPY ./backend/go.mod ./backend/go.sum ./
 
-RUN go mod download
+RUN go mod tidy
 
-WORKDIR /app/src
-
-RUN go mod download
-
-RUN go build todolist.go
+RUN go build .
 
 EXPOSE 8000
 
-CMD [ "./todolist" ]
+CMD [ "./backend" ]
