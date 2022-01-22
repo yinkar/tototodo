@@ -12,20 +12,6 @@ jobs:
       - checkout
 
       - run:
-          name: Run backend tests
-          command: |
-            (cd backend && godog)
-
-      - setup_remote_docker
-
-      - run:
-          name: Run frontend tests
-          command: |
-            (cd frontend && npm run test:e2e)
-
-      - setup_remote_docker
-
-      - run:
           name: Install Docker client
           command: |
             set -x
@@ -45,6 +31,20 @@ jobs:
           name: Build
           command: docker-compose build
 
+      - run:
+          name: Run backend tests
+          command: |
+            (cd backend && godog)
+
+      - setup_remote_docker
+
+      - run:
+          name: Run frontend tests
+          command: |
+            (cd frontend && npm run test:e2e)
+
+      - setup_remote_docker
+      
       - run:
           name: Start
           command: docker-compose up
