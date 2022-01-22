@@ -14,5 +14,5 @@ When(`i press the button`, () => {
 });
 
 Then(`{string} should be in the list`, s => {
-    // cy.get('.todos').contains(s);
+    cy.get('.todos').contains(s);
 });

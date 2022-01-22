@@ -13,6 +13,7 @@
     "test:tags": "npx cypress-tags run -e TAGS=$TAGS"
   },
   "dependencies": {
+    "@pact-foundation/pact": "^9.17.2",
     "ansi-regex": "^6.0.1",
     "core-js": "^3.6.5",
     "cypress-cucumber-preprocessor": "^4.3.1",
