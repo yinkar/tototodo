@@ -9,6 +9,9 @@ jobs:
 
     steps:
       - checkout
+      
+      - setup_remote_docker:
+          version: 19.03.13
 
       - run:
           name: Install Docker client
@@ -37,7 +40,7 @@ jobs:
             (cd frontend && npm run test:e2e)
 
       - setup_remote_docker
-      
+
       - store_artifacts:
           path: /tmp/test-results
           destination: raw-test-output
