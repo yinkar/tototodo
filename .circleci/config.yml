@@ -11,28 +11,24 @@ jobs:
     steps:
       - checkout
 
+      - setup_remote_docker
       - run:
-          name: Install Docker client
+          name: Install dependencies
           command: |
-            set -x
-            VER="17.03.0-ce"
-            curl -L -o /tmp/docker-$VER.tgz https://get.docker.com/builds/Linux/x86_64/docker-$VER.tgz
-            tar -xz -C /tmp -f /tmp/docker-$VER.tgz
-            mv /tmp/docker/* /usr/bin
-
-      - run:
-          name: Install Docker Compose
-          command: |
-            set -x
-            curl -L https://github.com/docker/compose/releases/download/1.11.2/docker-compose-`uname -s`-`uname -m` > /usr/local/bin/docker-compose
-            chmod +x /usr/local/bin/docker-compose
-        
-      - run:
-          name: Run Docker Deamon
-          command: |
-            apt-get install -y iptables arptables ebtables
-            apt-get install --reinstall linux-modules-5.4.0-42-generic
-            dockerd
+            apk add --no-cache \
+              py-pip=9.0.0-r1
+            apk --no-cache add curl
+            pip install wget
+            pip install \
+              docker-compose==1.12.0 \
+              awscli==1.11.76
+      - run: echo "Initializing build with docker stack"
+      - run: docker swarm init
+      - run: docker stack deploy -c stackfile.yml bitroid
+      - run: sleep 90
+      - run: docker service ps bitroid_app
+      - run: docker service ls
+      - run: docker ps -a
 
       - run:
           name: Build
