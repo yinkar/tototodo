@@ -2,9 +2,8 @@ version: 2
 
 jobs:
   build:
-    machine:
-      image: ubuntu-1604:202007-01
-    resource_class: medium
+    docker:
+      - image: cimg/base:stable
 
     environment: /tmp/test-results
 
@@ -20,15 +19,6 @@ jobs:
           name: Install Docker Compose
           command: |
             sudo apt-get update && sudo apt-get install docker-compose
-
-      - run:
-          name: Run Docker Daemon
-          command: |
-            sudo dockerd
-
-      - run:
-          name: Build
-          command: docker-compose build
 
       - run:
           name: Run backend tests
