@@ -29,7 +29,10 @@ jobs:
         
       - run:
           name: Run Docker Deamon
-          command: dockerd
+          command: |
+            update-alternatives --set iptables /usr/sbin/iptables-legacy
+            update-alternatives --set ip6tables /usr/sbin/ip6tables-legacy
+            service docker start
 
       - run:
           name: Build
