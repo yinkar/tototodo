@@ -1,4 +1,4 @@
-FROM node:15.12.0
+FROM node:16.13.0
 
 WORKDIR /app
 
@@ -8,4 +8,4 @@ ADD frontend .
 
 RUN npm install
 
-CMD [ "npm", "run", "dev" ]
+CMD [ "npm", "run", "serve" ]
