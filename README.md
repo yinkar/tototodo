@@ -35,9 +35,9 @@ tototodo/
 ├── .circleci
 │   └── config.yml
 ├── backend
-|   ├── _config
+│   ├── _config
 │   │   └── config.go
-|   ├── features
+│   ├── features
 │   │   └── ...
 │   ├── src
 │   │   ├── database.go
@@ -53,7 +53,7 @@ tototodo/
 │   │   ├── components
 │   │   │    └── ...
 │   │   ├── App.vue
-|   │   └── main.js
+│   │   └── main.js
 │   ├── public
 │   │   ├── index.html
 │   │   └── ...
