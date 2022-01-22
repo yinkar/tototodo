@@ -38,17 +38,6 @@ services:
     container_name: tototodo-db
     ports:
       - 33066:3306
-  
-  pma:
-    image: phpmyadmin/phpmyadmin
-    depends_on:
-      - database
-    environment:
-      - 'PMA_HOST=database'
-      - 'PMA_PORT=3306'
-    container_name: tototodo-pma
-    ports:
-      - 8002:80
 
 volumes:
   tototodo-data:

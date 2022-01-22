@@ -24,8 +24,8 @@ jobs:
             sudo apt-get update && sudo apt-get install docker-compose
 
       - run:
-          name: Start
-          command: docker-compose up
+          name: Build
+          command: docker-compose build
 
       - run:
           name: Run backend tests
@@ -40,6 +40,10 @@ jobs:
             (cd frontend && npm run test:e2e)
 
       - setup_remote_docker
+
+      - run:
+          name: Start
+          command: docker-compose up -d
 
       - store_artifacts:
           path: /tmp/test-results
