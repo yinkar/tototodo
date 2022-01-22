@@ -21,13 +21,13 @@ jobs:
             sudo apt-get update && sudo apt-get install docker-compose
 
       - run:
-          name: Build
-          command: docker-compose build
-
-      - run:
           name: Run Docker Daemon
           command: |
             sudo dockerd
+
+      - run:
+          name: Build
+          command: docker-compose build
 
       - run:
           name: Run backend tests
