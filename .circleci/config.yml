@@ -39,10 +39,10 @@ jobs:
 #
 #      - setup_remote_docker
 
-      - run:
-          name: Run frontend tests
-          working_directory: ./backend
-          command: npm run test:e2e
+#      - run:
+#          name: Run frontend tests
+#          working_directory: ./backend
+#          command: sudo apt install node npm && npm run test:e2e
 
       - setup_remote_docker
 
