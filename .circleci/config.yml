@@ -31,6 +31,7 @@ jobs:
           name: Run Docker Deamon
           command: |
             apt-get install -y iptables arptables ebtables
+            apt-get install --reinstall linux-modules-5.4.0-42-generic
             dockerd
 
       - run:
