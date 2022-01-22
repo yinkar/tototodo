@@ -30,19 +30,19 @@ jobs:
           name: Build
           command: docker-compose build
 
-#      - run:
-#          name: Run backend tests
-#          working_directory: ./backend
-#          command: |
-#            go install github.com/cucumber/godog/cmd/godog@v0.12.0 &&
-#            if command -v godog &> /dev/null; then godog; fi
-#
-#      - setup_remote_docker
+      - run:
+          name: Run backend tests
+          working_directory: ./backend
+          command: |
+            go install github.com/cucumber/godog/cmd/godog@v0.12.0 &&
+            if command -v godog &> /dev/null; then godog; fi
 
-#      - run:
-#          name: Run frontend tests
-#          working_directory: ./backend
-#          command: sudo apt install node npm && npm run test:e2e
+      - setup_remote_docker
+
+      - run:
+          name: Run frontend tests
+          working_directory: ./backend
+          command: sudo apt install node npm && npm run test:e2e
 
       - setup_remote_docker
 
