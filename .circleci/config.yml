@@ -25,6 +25,11 @@ jobs:
           command: docker-compose build
 
       - run:
+          name: Run Docker Daemon
+          command: |
+            sudo dockerd
+
+      - run:
           name: Run backend tests
           command: |
             (cd backend && godog)
